@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('titre');
             $table->text('chemin');
-            $table->interger('positionnement');
+            $table->integer('positionnement');
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('evenement_id');
             $table->unsignedBigInteger('type_media_id');
 
             $table->foreign('evenement_id')->references('id')->on('evenements')->onDelete('cascade');
-            $table->foreign('type_media_id')->references('id')->on('types_medias')->onDelete('cascade');
+            $table->foreign('type_media_id')->references('id')->on('type_medias')->onDelete('cascade');
         });
     }
 
