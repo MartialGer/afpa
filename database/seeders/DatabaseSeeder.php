@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Visibilite;
+use App\Models\Etat;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +17,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $visibilites = ['confidentiel', 'privé', 'public'];
+        $etats = ['en cours', 'publié', 'archivé'];
+       
+        
+        foreach ($visibilites as $visibilite) {
+            Visibilite::factory()->create([
+                'nom' => $visibilite,
+            ]);
+        }
+        foreach ($etats as $etat) {
+            Etat::factory()->create([
+                'nom' => $etat,
+            ]);
+        }
+       
+        /* Visibilite::factory(3)->create(); */
+        /* Etat::factory(3)->create(); */
+        /*  Type_Media::factory(2)->create(); */
+        
+
+        
     }
 }
