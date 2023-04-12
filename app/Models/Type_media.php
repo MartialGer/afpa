@@ -5,23 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Etat extends Model
+class Type_media extends Model
 {
     use HasFactory;
 
-    protected $table = 'etats';
+    protected $table = 'type_medias';
 
     protected $fillable = [
 		'nom',
-
+		
 	];
 
-    
-  public function evenements()
+    public function media_evenements()
 	{
-		return $this->hasMany(Evenement::class);
+		return $this->hasMany(Media_evenement::class);
 	}
-
-
-    
 }

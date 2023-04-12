@@ -5,23 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Etat extends Model
+class Template extends Model
 {
     use HasFactory;
 
-    protected $table = 'etats';
+    protected $table = 'templates';
 
     protected $fillable = [
 		'nom',
-
+		'preview',
+		
 	];
 
-    
-  public function evenements()
+    public function evenements()
 	{
 		return $this->hasMany(Evenement::class);
 	}
-
-
-    
 }

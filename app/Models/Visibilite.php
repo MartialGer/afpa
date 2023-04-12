@@ -16,5 +16,10 @@ class Visibilite extends Model
 		
 	];
 
+  public function evenements()
+	{
+		return $this->hasMany(Evenement::class);
+	}
+
     
 }

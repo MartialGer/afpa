@@ -1,3 +1,8 @@
+@php
+$user = Auth::user();
+$roles = $user->roles;
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -11,6 +16,13 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+                <form id="recetteForm" class="px-5 " action="{{ route('evenements.index') }}" method="GET" enctype="multipart/form-data">
+            @csrf
+           
+            <button>index</button>
+        </form>
+        <a href="{{ route('evenements.indexUser') }}">indexUser</a>
+
             </div>
         </div>
     </div>

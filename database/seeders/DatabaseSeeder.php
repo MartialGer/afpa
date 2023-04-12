@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Visibilite;
 use App\Models\Etat;
+use App\Models\Type_media;
 
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $visibilites = ['confidentiel', 'privé', 'public'];
         $etats = ['en cours', 'publié', 'archivé'];
-       
+        $typesMedia=['video', 'image'];
         
         foreach ($visibilites as $visibilite) {
             Visibilite::factory()->create([
@@ -33,6 +34,11 @@ class DatabaseSeeder extends Seeder
             ]);
         }
        
+        foreach ($typesMedia as $typeMedia) {
+            Type_Media::factory()->create([
+                'nom' => $typeMedia,
+            ]);
+        }
         /* Visibilite::factory(3)->create(); */
         /* Etat::factory(3)->create(); */
         /*  Type_Media::factory(2)->create(); */
