@@ -26,7 +26,7 @@ class EvenementController extends Controller
         $images = Media::all();
 
 
-        return view('evenements.gestionEvenements')
+        return view('evenements.indexAdminEvenements')
             ->with('images', $images)
             ->with('evenements', $evenements);
     }
