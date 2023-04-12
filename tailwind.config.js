@@ -13,6 +13,7 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 Kanit: ['Kanit', 'sans-serif'],
+                roboto: ['Roboto', 'sans-serif'],
             },
         },
     },

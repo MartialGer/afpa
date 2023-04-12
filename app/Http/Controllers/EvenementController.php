@@ -158,7 +158,7 @@ class EvenementController extends Controller
         $visibilites = Visibilite::all();
         $etats = Etat::all();
 
-        return view('evenements.formulaireModificationEvenement')
+        return view('evenements.formulaireEvenement')
             ->with('image', $image)
             ->with('video', $video)
             ->with('evenement', $evenement)

@@ -62,7 +62,7 @@
                     <div class="flex flex-col w-72 gap-5 items-center">
                         @if (isset($image[0]['chemin']))
 
-                        <button id="imageDelete" class="p-2 w-48 h-10 bg-red-500 rounded-md border-2 border-red-300 shadow">supprimer l'image</button>
+                        <x-bouton-suppr id="imageDelete">supprimer l'image</x-bouton-suppr>
                         <img id="imagePreview" src="{{  asset($image[0]['chemin']) }}" alt="image">
                         @else
                         <img id="imagePreview" alt="">
@@ -78,7 +78,7 @@
                         <input type="text" name='videoDeleted' class="hidden" id='videoDeleted' value='0'>
                     </div>
                     @if (isset($video[0]['chemin']))
-                    <button id="videoDelete" class="p-2 w-48 h-10 bg-red-500 rounded-md border-2 border-red-300 shadow">supprimer la vidéo</button>
+                    <x-bouton-suppr id="videoDelete">supprimer la vidéo</x-bouton-suppr>
                     <iframe id="vidPreview" width="250" height="150" src="https://www.youtube.com/embed/{{ $video[0]['chemin'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     @else
                     <iframe class="hidden" id="vidPreview" width="250" height="150" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -102,10 +102,10 @@
                     </option>
                     @endforeach
                 </select>
-                <button class="p-2 w-48 h-10 bg-green-700 rounded-md border-2 border-green-300 shadow">Valider</button>
+                <x-bouton-valider>Valider</x-bouton-valider>
         </form>
         <form method="get" action="{{ route('evenements.index')}}">
-            <button class="p-2 w-48 h-10 bg-red-500 rounded-md border-2 border-red-300 shadow">annuler</button>
+            <x-bouton-annuler>annuler</x-bouton-annuler>
         </form>
 
 
