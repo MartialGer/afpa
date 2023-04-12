@@ -37,7 +37,11 @@
                     <img id="imagePreview" src="{{  asset('storage/imagesEvenement/logo-afpa.jpg') }}" alt="sdfsdfsd">
                     @endif
                 </div>
-                <p>{{$evenement[0]['contenu']}}</p>
+
+                <p> @php
+                    echo($evenement[0]['contenu'])
+                    @endphp
+                </p>
 
                 <div class="flex mx-auto my-5 justify-center">
                     @if (isset($video[0]['chemin']))

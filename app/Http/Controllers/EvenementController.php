@@ -127,6 +127,7 @@ class EvenementController extends Controller
     public function showUser($id)
     {
         $evenement = Evenement::cetEvenement($id);
+
         $image = Media::cetteImage($id);
         $video = Media::cetteVideo($id);
         $templates = Template::all();
