@@ -11,7 +11,7 @@ class CtrlMeteo extends Controller
 {
     public function afficherFormulaire()
     {
-        return view('formulaireMeteo');
+        return view('meteo.formulaireMeteo');
     }
 
     public function selectVilleMeteo(Request $request)
@@ -21,15 +21,15 @@ class CtrlMeteo extends Controller
 
         if ($data === 1) {
             $error = 1;
-            return view('formulaireMeteo', compact(['error'])); // vue erreur serveur
+            return view('meteo.formulaireMeteo', compact(['error'])); // vue erreur serveur
         }
 
         if ($data === 2) {
             $error = 2;
-            return view('formulaireMeteo', compact(['error'])); // vue erreur ville
+            return view('meteo.formulaireMeteo', compact(['error'])); // vue erreur ville
         }
 
-        return view('formulaireMeteo', compact(['data']));
+        return view('meteo.formulaireMeteo', compact(['data']));
     }
     public function afficherWidgetMeteo()
     {
@@ -38,12 +38,12 @@ class CtrlMeteo extends Controller
 
         if ($data === 1) {
             $error = 1;
-            return view('meteoWidget', compact(['error'])); // vue erreur serveur
+            return view('meteo.meteoWidget', compact(['error'])); // vue erreur serveur
         }
 
         if ($data === 2) {
             $error = 2;
-            return view('meteoWidget', compact(['error'])); // vue erreur ville
+            return view('meteo.meteoWidget', compact(['error'])); // vue erreur ville
         }
 
         $city = $data->ville;
@@ -57,7 +57,7 @@ class CtrlMeteo extends Controller
             ModelMeteo::selectVilleMeteoApi($city);
             $data = ModelMeteo::selectAllVilleMeteo();
         }
-        return view('meteoWidget', compact(['data']));
+        return view('meteo.meteoWidget', compact(['data']));
     }
     public function afficherPrevMeteo()
     {
@@ -65,12 +65,12 @@ class CtrlMeteo extends Controller
 
         if ($data === 1) {
             $error = 1;
-            return view('meteoPrev', compact(['error'])); // vue erreur serveur
+            return view('meteo.meteoPrev', compact(['error'])); // vue erreur serveur
         }
 
         if ($data === 2) {
             $error = 2;
-            return view('meteoPrev', compact(['error'])); // vue erreur ville
+            return view('meteo.meteoPrev', compact(['error'])); // vue erreur ville
         }
 
         $city = $data->ville;
@@ -82,7 +82,7 @@ class CtrlMeteo extends Controller
             ModelMeteo::selectVilleMeteoApi($city);
             $data = ModelMeteo::selectAllVilleMeteo();
         }
-        return view('meteoPrev', compact(['data']));
+        return view('meteo.meteoPrev', compact(['data']));
     }
 }
 

@@ -13,21 +13,21 @@ class CtrlRCS extends Controller
         try {
             $reglements = ModelRCS::whereNull('deleted_at')->get();
         } catch (\Exception $e) {
-            return view('indexRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
+            return view('rcs.indexRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
                 ->with('reglements', []);
         }
 
-        return view('indexRCS', ['reglements' => $reglements]);
+        return view('rcs.indexRCS', ['reglements' => $reglements]);
     }
     public function indexAdminRCS()
     {
         try {
             $reglements = ModelRCS::whereNull('deleted_at')->get();
         } catch (\Exception $e) {
-            return view('indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
+            return view('rcs.indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
                 ->with('reglements', []);
         }
-        return view('indexAdminRCS', [
+        return view('rcs.indexAdminRCS', [
             'reglements' => $reglements,
         ]);
     }
@@ -36,10 +36,10 @@ class CtrlRCS extends Controller
         try {
             $titre = $request->input('titre');
         } catch (\Exception $e) {
-            return view('indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
+            return view('rcs.indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
                 ->with('reglements', []);
         }
-        return view('formulaireRCS')->with('titre', $titre);
+        return view('rcs.formulaireRCS')->with('titre', $titre);
     }
     public function pageRCS($slug)
     {
@@ -47,10 +47,10 @@ class CtrlRCS extends Controller
             $titre = str_replace('_', ' ', $slug);
             $reglement = ModelRCS::where('titre', $titre)->firstOrFail();
         } catch (\Exception $e) {
-            return view('indexRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
+            return view('rcs.indexRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
                 ->with('reglement', []);
         }
-        return view('pageRCS', ['reglement' => $reglement]);
+        return view('rcs.pageRCS', ['reglement' => $reglement]);
     }
     
     public function nouveauRCS(RequestRCS $request)
@@ -68,7 +68,7 @@ class CtrlRCS extends Controller
             $reglement->save();
 
         } catch (\Exception $e) {
-            return view('indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
+            return view('rcs.indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
                 ->with('reglements', []);
         }
 
@@ -80,10 +80,10 @@ class CtrlRCS extends Controller
             $titre = str_replace('_', ' ', $slug);
             $reglement = ModelRCS::where('titre', $titre)->firstOrFail();
         } catch (\Exception $e) {
-            return view('indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
+            return view('rcs.indexAdminRCS')->with('error', 'Désolé, la base de données n\'est pas disponible.')
                 ->with('reglement', []);
         }
-        return view('formulaireRCS', ['reglement' => $reglement, 'titre' => $titre]);
+        return view('rcs.formulaireRCS', ['reglement' => $reglement, 'titre' => $titre]);
     }
     public function editRCS(RequestRCS $request, $slug)
     {

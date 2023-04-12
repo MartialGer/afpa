@@ -51,7 +51,7 @@
 
 
 @endsection
-@section('contenu')
+@section('content')
 
 
 @if (isset($error))

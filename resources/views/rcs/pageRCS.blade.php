@@ -1,4 +1,4 @@
-@extends('templateFormulaire')
+@extends('template')
 
 @section('content')
     <div>
