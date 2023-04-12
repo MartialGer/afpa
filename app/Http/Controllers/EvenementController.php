@@ -114,7 +114,7 @@ class EvenementController extends Controller
                 'evenement_id' => $id,
             ]);
         }
-        return redirect()->route('evenements.index');
+        return redirect()->route('evenements.index')->with('message', 'nouvel évènement créé !');
     }
 
 
@@ -235,7 +235,7 @@ class EvenementController extends Controller
                 'evenement_id' => $id,
             ]);
         }
-        return redirect()->route('evenements.index');
+        return redirect()->route('evenements.index')->with('message', 'Modifications enregistrées');
     }
 
     /**
@@ -253,6 +253,6 @@ class EvenementController extends Controller
         $evenement->delete();
 
 
-        return redirect()->route('evenements.index');
+        return redirect()->route('evenements.index')->with('message', 'Supression ruéssie');
     }
 }
