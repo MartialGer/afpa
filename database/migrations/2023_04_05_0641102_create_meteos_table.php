@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('meteos', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
+            $table->string('nom')->default('afpa');
             $table->json('json');
+            $table->string('ville');
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('visibilite_id');
