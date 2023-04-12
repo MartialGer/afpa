@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        $visibilites = ['confidentiel', 'privé', 'public'];
-        $etats = ['en cours', 'publié', 'archivé'];
+        $visibilites = ['Confidentiel', 'Privé', 'Public'];
+        $etats = ['En cours', 'Publié', 'Archivé'];
         $typesMedia=['video', 'image'];
         
         foreach ($visibilites as $visibilite) {
