@@ -17,11 +17,11 @@ class CtrlNDS extends Controller
             $visibilites = Visibilite::all();
             $etats = Etat::all();
         } catch (\Exception $e) {
-            return view('indexNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
 
-        return view('indexNDS', ['notes_de_service' => $notes_de_service, 'visibilites' => $visibilites, 'etats' => $etats]);
+        return view('nds.indexNDS', ['notes_de_service' => $notes_de_service, 'visibilites' => $visibilites, 'etats' => $etats]);
     }
     public function indexAdminNDS()
     {
@@ -30,11 +30,11 @@ class CtrlNDS extends Controller
             $visibilites = Visibilite::all();
             $etats = Etat::all();
         } catch (\Exception $e) {
-            return view('indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
 
-        return view('indexAdminNDS', ['notes_de_service' => $notes_de_service, 'visibilites' => $visibilites, 'etats' => $etats]);
+        return view('nds.indexAdminNDS', ['notes_de_service' => $notes_de_service, 'visibilites' => $visibilites, 'etats' => $etats]);
     }
 
 
@@ -44,11 +44,11 @@ class CtrlNDS extends Controller
             $visibilites = Visibilite::all();
             $etats = Etat::all();
         } catch (\Exception $e) {
-            return view('indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
 
-        return view('formulaireNDS', ['visibilites' => $visibilites, 'etats' => $etats]);
+        return view('nds.formulaireNDS', ['visibilites' => $visibilites, 'etats' => $etats]);
     }
 
     public function nouveauNDS(RequestNDS $request)
@@ -67,7 +67,7 @@ class CtrlNDS extends Controller
             $note_de_service->etat_id = $request->input('etat');
             $note_de_service->save();
         } catch (\Exception $e) {
-            return view('indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
 
@@ -81,11 +81,11 @@ class CtrlNDS extends Controller
             $visibilites = Visibilite::all();
             $etats = Etat::all();
         } catch (\Exception $e) {
-            return view('indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
 
-        return view('formulaireNDS', ['note_de_service' => $note_de_service, 'titre' => $titre, 'visibilites' => $visibilites, 'etats' => $etats]);
+        return view('nds.formulaireNDS', ['note_de_service' => $note_de_service, 'titre' => $titre, 'visibilites' => $visibilites, 'etats' => $etats]);
     }
     public function pageNDS($slug)
     {
@@ -93,11 +93,11 @@ class CtrlNDS extends Controller
         try {
             $note_de_service = ModelNDS::where('titre', $titre)->firstOrFail();
         } catch (\Exception $e) {
-            return view('indexNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
 
-        return view('pageNDS', ['note_de_service' => $note_de_service]);
+        return view('nds.pageNDS', ['note_de_service' => $note_de_service]);
     }
 
     public function editNDS($slug, RequestNDS $request)
@@ -125,7 +125,7 @@ class CtrlNDS extends Controller
             $note_de_service->etat_id = $request->input('etat');
             $note_de_service->save();
         } catch (\Exception $e) {
-            return view('indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
     
@@ -138,7 +138,7 @@ class CtrlNDS extends Controller
         try {
             $note_de_service = ModelNDS::where('titre', $titre)->firstOrFail();
         } catch (\Exception $e) {
-            return view('indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
+            return view('nds.indexAdminNDS')->with('error', 'Désolé, la base de donnée n\'est pas disponible.')
                 ->with('notes_de_service', []);
         }
 

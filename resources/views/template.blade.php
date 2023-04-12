@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        @yield('contenu')
+        @yield('content')
         @yield('scripts')
         @yield('scripts2')
 

@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('contenu')
+@section('content')
 
     <form action="{{ url('admin/meteo') }}" method="POST">
 
