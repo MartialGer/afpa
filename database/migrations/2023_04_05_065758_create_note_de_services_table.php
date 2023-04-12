@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('note_de_services', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
+            $table->string('titre')->unique();
+            $table->string('pdf');
             $table->string('auteur');
             $table->date('date_creation');
             $table->timestamps();
