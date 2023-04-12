@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CtrlNDS;
 use App\Http\Controllers\CtrlRCS;
+use App\Http\Controllers\CtrlMeteo;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ Route::prefix('/admin')->middleware('role:admin')->group(function () {
     Route::post('/reglements/nouveau', [CtrlRCS::class, 'nouveauRCS'])->name('saveRCS');
     Route::get('/reglements/{slug}/modifier', [CtrlRCS::class, 'selectRCS'])->name('selectRCS');
     Route::put('/reglements/{slug}/modifier', [CtrlRCS::class, 'editRCS'])->name('updateRCS');
+
+    //METEO
+    Route::get('/meteo', [CtrlMeteo::class, 'afficherFormulaire'])->name('meteo_get');
+    Route::post('/meteo', [CtrlMeteo::class, 'selectVilleMeteo'])->name('meteo_post');
 });
 
 /////USER
@@ -46,6 +51,10 @@ Route::get('/note_de_services/{slug}', [CtrlNDS::class, 'pageNDS'])->name('pageN
 //RCS
 Route::get('/reglements', [CtrlRCS::class, 'indexRCS'])->name('indexRCS');
 Route::get('/reglements/{slug}', [CtrlRCS::class, 'pageRCS'])->name('pageRCS');
+//USER
+Route::get('/meteo/widget', [CtrlMeteo::class, 'afficherWidgetMeteo'])->name('meteo_widget');
+Route::get('/meteo/previsionnel', [CtrlMeteo::class, 'afficherPrevMeteo'])->name('meteo_previsionnel');
+//EVENEMENT
 Route::resource('admin/evenements', 'App\Http\Controllers\EvenementController')->middleware('role:Super Admin, Admin Evenement');
 Route::get('/evenements', [EvenementController::class, 'indexUser'])->name('evenements.indexUser');
 Route::get('/evenements/{evenement}', [EvenementController::class, 'showUser'])->name('evenements.showUser');
@@ -60,4 +69,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
