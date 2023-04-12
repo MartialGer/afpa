@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['resources/js/evenementFormulaire.js'])
+    @vite(['resources/css/evenements.css','resources/js/evenementFormulaire.js'])
 </head>
 
 <body>
@@ -15,7 +15,7 @@
             < </button>
                 <span>Retour à l'index admin</span>
     </a>
-    <h1>Gestion des évènements</h1>
+    <h1 class="font-Kanit">Gestion des évènements</h1>
     <div>
 
 
@@ -46,7 +46,7 @@
             <tr>
                 <td>{{$evenement->etat->nom}}</td>
                 <td>{{$evenement->visibilite->nom}}</td>
-                <td>{{$evenement->created_at->format('D,M,Y')}}</td>
+                <td>{{ $evenement->created_at->formatLocalized('%d %B %Y') }}</td>
                 <td>{{$evenement['titre']}}</td>
                 <td>{{$evenement->id}}</td>
 

@@ -8,7 +8,7 @@
     <title>Document</title>
     <script src="https://cdn.ckeditor.com/4.21.0/basic/ckeditor.js"></script>
 
-    @vite(['resources/css/app.css', 'resources/js/evenementModification.js'])
+    @vite(['resources/css/evenements.css', 'resources/js/evenementModification.js'])
 </head>
 
 <body class="flex flex-col items-center">
