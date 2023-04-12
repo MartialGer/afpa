@@ -38,7 +38,8 @@
                     @endif
                 </div>
 
-                <p> @php
+                <p>
+                    @php
                     echo($evenement[0]['contenu'])
                     @endphp
                 </p>

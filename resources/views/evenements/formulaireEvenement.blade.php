@@ -26,17 +26,19 @@
             <div class="flex flex-row justify-between gap-6 w-full mt-14">
                 <div class="w-9/12">
                     <h2>Titre</h2>
-                    <input class="w-10/12" type="text" name="titre" placeholder="Titre de l'article" @if ( isset($evenement)) value="{{$evenement[0]['titre']}}" @endif>
+                    <input class="w-10/12" type="text" name="titre" placeholder="Titre de l'article" @if ( isset($evenement)) value="{{$evenement[0]['titre']}}" @endif required>
                     <h2>Résumé</h2>
-                    <textarea class="h-28 w-10/12" type="text" name="resume" placeholder="Contenu de l'article" id="editor1">@if ( isset($evenement)) {{$evenement[0]['resume']}} @endif</textarea>
+                    <textarea class="h-28 w-10/12" type="text" name="resume" placeholder="Contenu de l'article" id="editor1" required>@if ( isset($evenement)) {{$evenement[0]['resume']}} @endif</textarea>
                     <h2>Contenu</h2>
-                    <textarea class="h-36 w-full" type="text" name="contenu" placeholder="Contenu de l'article" id="editor2">@if ( isset($evenement)) {{$evenement[0]['contenu']}} @endif</textarea>
+                    <textarea class="h-36 w-full" type="text" name="contenu" placeholder="Contenu de l'article" id="editor2" required>@if ( isset($evenement)) {{$evenement[0]['contenu']}} @endif</textarea>
 
                 </div>
                 <div class="w-3/12 h-full">
                     <h2>Mise en page</h2>
                     <div class="border-2 rounded-md p-3 flex flex-col items-center">
                         @foreach ($templates as $template)
+                  
+                        <span class="font-bold mx-auto">{{$template->nom}}</span>
                         <div class="flex justify-center items-center gap-4 mb-2 ">
                             <input type="radio" name="template" value="{{$template->id}}" @if( isset($evenement) && $evenement[0]['template_id']==$template->id) checked @elseif ($template->id == 1) checked @endif>
                             <img class="object-fill border-2 rounded-md w-40 h-40" src="{{asset($template['preview'])}}" alt="{{$template->id}}">
