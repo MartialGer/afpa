@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;class ModelMeteo extends Model
 {
     use HasFactory;
-    protected $table = 'meteo';
+    protected $table = 'meteos';
     protected $fillable = ['nom', 'ville', 'json', 'visibilite_id'];
     public static function selectVilleMeteoApi($city)
     {
