@@ -24,13 +24,21 @@
         </style>
     </head>
     <body class="antialiased">
-    <form id="recetteForm" class="px-5 " action="{{ route('evenements.index') }}" method="GET" enctype="multipart/form-data">
+    <form  class="px-5 " action="{{ route('evenements.index') }}" method="GET" enctype="multipart/form-data">
             @csrf
            
             <button>index</button>
         </form>
+
+        <a href="{{ route('articles.admin.index') }}">Agenda Admin</a>
+        <a href="{{ route('articles.index') }}">Agenda</a><br><br>
+        
+        <a href="{{ route('news.admin.index') }}">News Admin</a>
+        <a href="{{ route('news.index') }}">News</a><br><br>
+        
+
+
         <a href="{{ route('evenements.indexUser') }}">indexUser</a>
-        <x-danger-button>bite</x-danger-button>
    
     
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
