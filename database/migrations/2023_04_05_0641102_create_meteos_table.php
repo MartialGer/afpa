@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meteos', function (Blueprint $table) {
+        Schema::create('meteo', function (Blueprint $table) {
             $table->id();
             $table->string('nom')->default('afpa');
             $table->json('json');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('meteos');
+        Schema::dropIfExists('meteo');
     }
 };
