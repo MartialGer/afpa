@@ -50,9 +50,9 @@
         }
     </style>
 
-
-    <div>
-        <div id='calendar-container' wire:ignore>
+<div>
+    <div id='calendar-container' wire:ignore>
+            <div><a href="{{ route('welcome')}}" class="text-red-500 no-underline z-50 align-left">Agenda</a></div>
             <div id='calendar'></div>
         </div>
     </div>

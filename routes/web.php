@@ -22,7 +22,7 @@ use App\Http\Controllers\NewsController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 /////ADMIN 
 Route::prefix('/admin')->middleware('role:admin')->group(function () {

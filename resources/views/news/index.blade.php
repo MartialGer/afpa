@@ -10,6 +10,7 @@
 </head>
 
 <body style="background-color: #CF0043;" class="flex justify-center">
+<div><a href="{{ route('welcome')}}" class="text-blue-500 no-underline z-50 align-left">Index</a></div>
     <div style="background-color: snow;" class="w-11/12 my-10 rounded-lg flex flex-col items-center shadow-xl ">
 
         <!--  bloc du haut -->

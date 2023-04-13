@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-color: #CF0043;">
-    <div><a href="{{ route('news.index')}}" class="text-red-500 no-underline z-50 align-left">Agenda</a></div>
+    <div><a href="{{ route('news.index')}}" class="text-red-500 no-underline z-50 align-left">News</a></div>
     <div class="flex items-center justify-center flex-col h-screen">
         <div style="background-color: snow;" class="flex items-center justify-center gap-10 h-4/5 flex-col w-4/5 rounded-md">
             <div class="flex justify-center border border-black border-solid rounded-md w-4/5 text-3xl">

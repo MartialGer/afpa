@@ -10,6 +10,8 @@
 </head>
 
 <body>
+<div><a href="{{ route('articles.index')}}" class="text-red-500 no-underline z-50 align-left">Agenda</a></div>
+
     <div>
 
         @if ($errors->any())
