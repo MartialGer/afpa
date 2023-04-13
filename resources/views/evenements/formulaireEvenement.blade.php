@@ -11,9 +11,9 @@
     @vite(['resources/css/evenements.css', 'resources/js/evenementModification.js'])
 </head>
 
-<body class="flex flex-col items-center">
+<body class="font-roboto flex flex-col items-center">
     <main class="w-[95vw]  max-w-7xl  p-5 bg-white shadow-2xl">
-        <h1 class="text-center text-2xl w-72 p-5 border mx-auto"> @if ( isset($evenement)) Modifier évènement "{{$evenement[0]['titre']}}" @else Nouvel évènement @endif</h1>
+        <h1 class="text-center text-2xl w-80 p-5 border mx-auto"> @if ( isset($evenement)) Modifier évènement "{{$evenement[0]['titre']}}" @else Nouvel évènement @endif</h1>
         <form id="evenementForm" class="mx-5 " action=" @if ( isset($evenement)) {{ route('evenements.update', ['evenement' => $evenement[0]['id']]) }} @else {{ route('evenements.store')}} @endif" method="POST" enctype="multipart/form-data" class="flex flex-col" onkeydown="return event.key != 'Enter'; ">
             @csrf
 
@@ -25,23 +25,21 @@
 
             <div class="flex flex-row justify-between gap-6 w-full mt-14">
                 <div class="w-9/12">
-                    <h2>Titre</h2>
-                    <input class="w-10/12" type="text" name="titre" placeholder="Titre de l'article" @if ( isset($evenement)) value="{{$evenement[0]['titre']}}" @endif required maxlength="120">
-                    <h2>Résumé</h2>
-                    <textarea class="h-28 w-10/12" type="text" name="resume" placeholder="Contenu de l'article" id="editor1" required>@if ( isset($evenement)) {{$evenement[0]['resume']}} @endif</textarea>
-                    <h2>Contenu</h2>
-                    <textarea class="h-36 w-full" type="text" name="contenu" placeholder="Contenu de l'article" id="editor2" required>@if ( isset($evenement)) {{$evenement[0]['contenu']}} @endif</textarea>
+                    <h2 class='font-bold'>Titre</h2>
+                    <input class="w-10/12 rounded  border-gray-200" type="text" name="titre" placeholder="Titre de l'article" @if ( isset($evenement)) value="{{$evenement[0]['titre']}}" @endif>
+                    <h2 class='font-bold'>Résumé</h2>
+                    <textarea class="h-28 w-10/12 rounded  border-gray-200" type="text" name="resume" placeholder="Contenu de l'article" id="editor1">@if ( isset($evenement)) {{$evenement[0]['resume']}} @endif</textarea>
+                    <h2 class='font-bold'>Contenu</h2>
+                    <textarea class="h-36 w-full rounded " type="text" name="contenu" placeholder="Contenu de l'article" id="editor2">@if ( isset($evenement)) {{$evenement[0]['contenu']}} @endif</textarea>
 
                 </div>
                 <div class="w-3/12 h-full">
-                    <h2>Mise en page</h2>
-                    <div class="border-2 rounded-md p-3 flex flex-col items-center">
+                    <h2 class='font-bold'>Mise en page</h2>
+                    <div class="border rounded-md p-3 flex flex-col items-center  border-gray-200">
                         @foreach ($templates as $template)
-                  
-                        <span class="font-bold mx-auto">{{$template->nom}}</span>
-                        <div class="flex justify-center items-center gap-4 mb-2 ">
+                        <div class="flex justify-center items-center gap-4 mb-2  border-gray-200">
                             <input type="radio" name="template" value="{{$template->id}}" @if( isset($evenement) && $evenement[0]['template_id']==$template->id) checked @elseif ($template->id == 1) checked @endif>
-                            <img class="object-fill border-2 rounded-md w-40 h-40" src="{{asset($template['preview'])}}" alt="{{$template->id}}">
+                            <img class="object-fill border rounded-md w-40 h-40" src="{{asset($template['preview'])}}" alt="{{$template->id}}">
                         </div>
                         @endforeach
                     </div>
@@ -53,8 +51,8 @@
             <div class="flex gap-20 w-9/12 justify-evenly mt-8">
                 <div class="flex flex-col w-72 ">
                     <div id="imageInputDiv" class="hidden flex flex-col items-center mb-5">
-                        <span>Inserer une image</span>
-                        <div class="bg-blue-500 w-48 h-10 flex justify-center items-center">
+                        <span>Insérer une image</span>
+                        <div class="bg-blue-500 w-48 h-12 text-sm font-roboto flex justify-center items-center text-white rounded-md">
                             <label for="image">Upload</label>
                         </div>
 
@@ -90,14 +88,14 @@
 
 
             <div class="flex gap-6 mt-5">
-                <select name="etat" id="etat" class="w-72">
+                <select name="etat" id="etat" class="w-72 rounded border-gray-200">
                     @foreach ($etats as $etat)
                     <option value="{{ $etat->id }}" @if (isset($evenement) && $evenement[0]['etat_id']==$etat->id) selected @endif>
                         {{ $etat->nom }}
                     </option>
                     @endforeach
                 </select>
-                <select name="visibilite" id="visibilite" class="w-72">
+                <select name="visibilite" id="visibilite" class="w-72 rounded border-gray-200">
                     @foreach ($visibilites as $visibilite)
                     <option value="{{ $visibilite->id }}" @if (isset($evenement) && $evenement[0]['visibilite_id']==$visibilite->id) selected @endif>
                         {{ $visibilite->nom }}
@@ -117,6 +115,3 @@
 
     </main>
 </body>
-
-
-</html>

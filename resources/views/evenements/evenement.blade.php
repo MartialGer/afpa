@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -9,16 +9,23 @@
     @vite(['resources/css/evenements.css', 'resources/js/evenement.js'])
 </head>
 
-<body class="bg-green-700 flex justify-center">
-    <div class="bg-white w-11/12 min-h-screen my-8 rounded-2xl flex flex-col items-center shadow-xl ">
-        <div class="shadow-xl m-5 rounded-xl min-h-screen w-11/12 max-w-4xl">
+<body class="bg-vert-fonce flex justify-center">
+    <div class="bg-white w-11/12 my-8 rounded-2xl flex flex-col items-center shadow-xl pb-20">
+        <div class="m-5 rounded-xl w-11/12 max-w-4xl">
 
             <!-- partie haute -->
 
             <div class="m-5 justify-self-start place-self-start">
-                <a href="{{ route('evenements.indexUser') }}">index journal</a>
-                <h1 class="text-4xl mt-2 ">{{$evenement[0]['titre']}}</h1>
-                <span>{{$evenement[0]['created_at']}}</span>
+                <a class="w-11/12 flex mt-6" href="{{ route('evenements.indexUser') }}"> <button>
+                    <svg class='mr-2' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="10" fill="black" />
+                        <path d="M11 6L7 10L11 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span class='text-sm'>Retour</span>
+            </a>
+                <h1 class="text-4xl mt-5 font-Kanit">{{$evenement[0]['titre']}}</h1>
+                <span class="text-sm">Publié le {{$evenement[0]['created_at']}}</span>
             </div>
 
             <!-- article -->
