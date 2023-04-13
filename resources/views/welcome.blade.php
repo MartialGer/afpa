@@ -24,7 +24,23 @@
         </style>
     </head>
     <body class="antialiased">
-       
+    <form  class="px-5 " action="{{ route('evenements.index') }}" method="GET" enctype="multipart/form-data">
+            @csrf
+           
+            <button>index</button>
+        </form>
+
+        <a href="{{ route('articles.admin.index') }}">Agenda Admin</a>
+        <a href="{{ route('articles.index') }}">Agenda</a><br><br>
+        
+        <a href="{{ route('news.admin.index') }}">News Admin</a>
+        <a href="{{ route('news.index') }}">News</a><br><br>
+        
+
+
+        <a href="{{ route('evenements.indexUser') }}">indexUser</a>
+   
+    
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
