@@ -15,6 +15,11 @@ module.exports = {
                 Kanit: ['Kanit', 'sans-serif'],
                 roboto: ['Roboto', 'sans-serif'],
             },
+            colors: {
+                'vert-clair': '#87BB34',
+                'vert-fonce': '#44A33D',
+                'rose-afpa': '#E3007E',
+              },
         },
     },
 

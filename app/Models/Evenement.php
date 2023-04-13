@@ -25,8 +25,7 @@ class Evenement extends Model
 
 
     public static function lesEvenements(){
-        $evenements = Evenement::select('*')
-      
+        $evenements = Evenement::select('*') 
         ->get();
 
         return $evenements;

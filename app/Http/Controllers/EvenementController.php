@@ -33,7 +33,10 @@ class EvenementController extends Controller
 
     public function indexUser()
     {
-        $evenements = Evenement::paginate(5);
+        $evenements = Evenement::where('visibilite_id', '=', 3)
+        ->where('etat_id', '=', 2)
+        ->paginate(5);
+        
         $images = Media::lesImages();
 
 
@@ -68,7 +71,6 @@ class EvenementController extends Controller
     public function store(Request $request)
     {
         $titre = $request['titre'];
-        $slug = Str::slug($titre);
         $resume = $request['resume'];
         $contenu =  $request['contenu'];
         $idEtat =  $request['etat'];
@@ -78,8 +80,7 @@ class EvenementController extends Controller
         // --------------------------------------------------
 
         $evenement = Evenement::create([
-            'titre' => $titre,
-       
+            'titre' => $titre,  
             'resume' => $resume,
             'contenu' => $contenu,
             'etat_id' => $idEtat,
