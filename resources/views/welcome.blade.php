@@ -32,9 +32,9 @@
     <div class="parent">
         <div class="News"> <a href="{{ route('news.index') }}"> <img src="/Images/News.png" alt=""> News </a></div>
         <div class="Agenda"><a href="{{ route('articles.index') }}"> <img src="/Images/Agenda.png" alt=""> Agenda </a></div>
-        <div class="Météo"> <img src="/Images/Météo.png" alt=""> Météo </div>
-        <div class="NotedeService"> <img src="/Images/Notes.png" alt=""> Note de Service </div>
-        <div class="Informations"> <img src="/Images/information.png" alt=""> Informations</div>
+        <div class="Météo"><a href="{{route('meteo_widget')}}"> <img src="/Images/Météo.png" alt=""> Météo </div>
+        <div class="NotedeService"><a href="{{route('indexNDS')}}" ><img src="/Images/Notes.png" alt=""> Note de Service </a></div>
+        <div class="Informations"><a href="{{route('indexRCS')}}"> <img src="/Images/information.png" alt=""> Informations</div>
         <div class="Evenements"> <a href="{{ route('evenements.indexUser') }}"> <img src="/Images/Evenement.png" alt=""> Evenement </a></div>
         <div class="Logo"> <img src="/Images/LOGO-AFPA.png" alt=""></div>
     </div>
