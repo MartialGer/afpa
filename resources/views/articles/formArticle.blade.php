@@ -22,7 +22,7 @@
         </div>
         @endif
 
-        <form action="{{ isset($article) ? route('articles.update', ['article' => $article->id]) : route('articles.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ isset($article) ? route('articles.admin.update', ['article' => $article->id]) : route('articles.admin.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @if(isset($article))
             @method('PUT')

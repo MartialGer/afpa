@@ -62,6 +62,11 @@ Route::get('/evenements', [EvenementController::class, 'indexUser'])->name('even
 Route::get('/evenements/{evenement}', [EvenementController::class, 'showUser'])->name('evenements.showUser');
 //AGENDA
 Route::get('admin/articles', [ArticleController::class, 'indexAdmin'])->name('articles.admin.index');
+Route::get('admin/articles/create', [ArticleController::class, 'create'])->name('articles.admin.create');
+Route::post('admin/articles/store', [ArticleController::class, 'store'])->name('articles.admin.store');
+Route::put('admin/articles/update{article}', [ArticleController::class, 'update'])->name('articles.admin.update');
+Route::get('adminarticless/edit{article}', [ArticleController::class, 'edit'])->name('articles.admin.edit');
+Route::delete('admin/articles/destroy/{article}', [ArticleController::class, 'destroy'])->name('articles.admin.destroy');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
 

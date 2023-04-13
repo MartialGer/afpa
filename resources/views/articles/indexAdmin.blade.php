@@ -15,7 +15,7 @@
       <h2>Administration Agenda</h2>
     </div>
     <div style="background-color: snow;" class="flex items-center justify-center gap-10 h-3/5 flex-col w-4/5 rounded-md">
-      <a href="{{ route('articles.create')}}" class="flex-start"><x-bouton-ajouter>Ajouter</x-bouton-ajouter></a>
+      <a href="{{ route('articles.admin.create')}}" class="flex-start"><x-bouton-ajouter>Ajouter</x-bouton-ajouter></a>
       <table style="background-color: snow;" class="flex gap-10">
         <tr>
           <th class="border border-black border-solid rounded-md">TITRE</th>
@@ -31,9 +31,9 @@
           <td class="border border-black border-solid rounded-md">{{$article->etat->nom}}</td>
           <td class="border border-black border-solid rounded-md"> {{ \Carbon\Carbon::parse($article->date_debut)->format('d/m/Y') }}</td>
           <td class="border border-black border-solid rounded-md"> {{ \Carbon\Carbon::parse($article->date_fin)->format('d/m/Y') }}</td>
-          <td class="border border-black border-solid rounded-md"><a href="{{ route('articles.edit', ['article' => $article->id]) }}"><x-bouton-modif>Modifier</x-bouton-modif></a></td>
+          <td class="border border-black border-solid rounded-md"><a href="{{ route('articles.admin.edit', ['article' => $article->id]) }}"><x-bouton-modif>Modifier</x-bouton-modif></a></td>
           <td class="border border-black border-solid rounded-md">
-            <form action="{{ route('articles.destroy', ['article' => $article->id]) }}" method="POST">
+            <form action="{{ route('articles.admin.destroy', ['article' => $article->id]) }}" method="POST">
               @csrf
               @method('DELETE')
               <x-bouton-suppr  type="submit" onclick="confirmDelete(event)">Supprimer</x-bouton-suppr>
