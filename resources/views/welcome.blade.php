@@ -24,15 +24,7 @@
         </style>
     </head>
     <body class="antialiased">
-    <form id="recetteForm" class="px-5 " action="{{ route('evenements.index') }}" method="GET" enctype="multipart/form-data">
-            @csrf
-           
-            <button>index</button>
-        </form>
-        <a href="{{ route('evenements.indexUser') }}">indexUser</a>
-        <x-danger-button>bite</x-danger-button>
-   
-    
+       
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -67,7 +59,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    My dick iss
+                                   
                                      wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
                                 </div>
                             </div>

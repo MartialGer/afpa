@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let value = input.value;
         let articles = document.getElementsByTagName("article");
 
-        console.log(articles);
 
         for (let i = 0; i < articles.length; i++) {
             let cible1 = articles[i].getElementsByTagName("h1")[0];

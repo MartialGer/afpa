@@ -26,7 +26,7 @@
             <div class="flex flex-row justify-between gap-6 w-full mt-14">
                 <div class="w-9/12">
                     <h2>Titre</h2>
-                    <input class="w-10/12" type="text" name="titre" placeholder="Titre de l'article" @if ( isset($evenement)) value="{{$evenement[0]['titre']}}" @endif required>
+                    <input class="w-10/12" type="text" name="titre" placeholder="Titre de l'article" @if ( isset($evenement)) value="{{$evenement[0]['titre']}}" @endif required maxlength="120">
                     <h2>Résumé</h2>
                     <textarea class="h-28 w-10/12" type="text" name="resume" placeholder="Contenu de l'article" id="editor1" required>@if ( isset($evenement)) {{$evenement[0]['resume']}} @endif</textarea>
                     <h2>Contenu</h2>
@@ -117,10 +117,6 @@
 
     </main>
 </body>
-
-<script>
-
-</script>
 
 
 </html>
