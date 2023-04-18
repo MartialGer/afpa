@@ -21,12 +21,13 @@ use App\Http\Controllers\NewsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('meteoWidget');
 })->name('welcome');
 
 /////ADMIN 
 // Route::prefix('/admin')->middleware('role:Super Admin')->group(function () {
 Route::prefix('/admin')->group(function () {
+
     //NDS
     Route::get('/note_de_services', [CtrlNDS::class, 'indexAdminNDS'])->name('indexAdminNDS');
     Route::get('/note_de_services/nouveau', [CtrlNDS::class, 'afficherFormulaireNDS'])->name('createNDS');
@@ -45,41 +46,55 @@ Route::prefix('/admin')->group(function () {
     //METEO
     Route::get('/meteo', [CtrlMeteo::class, 'afficherFormulaire'])->name('meteo_get');
     Route::post('/meteo', [CtrlMeteo::class, 'selectVilleMeteo'])->name('meteo_post');
+
+    //EVENEMENT
+    Route::resource('/evenements', 'App\Http\Controllers\EvenementController');
+
+    //AGENDA
+    Route::get('/articles', [ArticleController::class, 'indexAdmin'])->name('articles.admin.index');
+    Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.admin.create');
+    Route::post('/articles/store', [ArticleController::class, 'store'])->name('articles.admin.store');
+    Route::put('/articles/update{article}', [ArticleController::class, 'update'])->name('articles.admin.update');
+    Route::get('/articless/edit{article}', [ArticleController::class, 'edit'])->name('articles.admin.edit');
+    Route::delete('/articles/destroy/{article}', [ArticleController::class, 'destroy'])->name('articles.admin.destroy');
+
+    //NEWS
+    Route::get('/news', [NewsController::class, 'indexAdmin'])->name('news.admin.index');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.admin.create');
+    Route::post('/news/store', [NewsController::class, 'store'])->name('news.admin.store');
+    Route::put('/news/update{news}', [NewsController::class, 'update'])->name('news.admin.update');
+    Route::get('/news/edit{news}', [NewsController::class, 'edit'])->name('news.admin.edit');
+    Route::delete('/news/destroy/{news}', [NewsController::class, 'destroy'])->name('news.admin.destroy');
+
 });
 
 /////USER
+
 //NDS
 Route::get('/note_de_services', [CtrlNDS::class, 'indexNDS'])->name('indexNDS');
 Route::get('/note_de_services/{slug}', [CtrlNDS::class, 'pageNDS'])->name('pageNDS');
+
 //RCS
 Route::get('/reglements', [CtrlRCS::class, 'indexRCS'])->name('indexRCS');
 Route::get('/reglements/{slug}', [CtrlRCS::class, 'pageRCS'])->name('pageRCS');
-//USER
-Route::get('/meteo/widget', [CtrlMeteo::class, 'afficherWidgetMeteo'])->name('meteo_widget');
-Route::get('/meteo/previsionnel', [CtrlMeteo::class, 'afficherPrevMeteo'])->name('meteo_previsionnel');
+
+//METEO
+Route::get('/', [CtrlMeteo::class, 'afficherWidgetMeteo'])->name('meteo_widget');
+Route::get('/meteo', [CtrlMeteo::class, 'afficherPrevMeteo'])->name('meteo_previsionnel');
+
 //EVENEMENT
-Route::resource('admin/evenements', 'App\Http\Controllers\EvenementController')->middleware('role:Super Admin, Admin Evenement');
 Route::get('/evenements', [EvenementController::class, 'indexUser'])->name('evenements.indexUser');
 Route::get('/evenements/{evenement}', [EvenementController::class, 'showUser'])->name('evenements.showUser');
+
 //AGENDA
-Route::get('admin/articles', [ArticleController::class, 'indexAdmin'])->name('articles.admin.index');
-Route::get('admin/articles/create', [ArticleController::class, 'create'])->name('articles.admin.create');
-Route::post('admin/articles/store', [ArticleController::class, 'store'])->name('articles.admin.store');
-Route::put('admin/articles/update{article}', [ArticleController::class, 'update'])->name('articles.admin.update');
-Route::get('adminarticless/edit{article}', [ArticleController::class, 'edit'])->name('articles.admin.edit');
-Route::delete('admin/articles/destroy/{article}', [ArticleController::class, 'destroy'])->name('articles.admin.destroy');
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
 
-Route::get('admin/news', [NewsController::class, 'indexAdmin'])->name('news.admin.index');
-Route::get('admin/news/create', [NewsController::class, 'create'])->name('news.admin.create');
-Route::post('admin/news/store', [NewsController::class, 'store'])->name('news.admin.store');
-Route::put('admin/news/update{news}', [NewsController::class, 'update'])->name('news.admin.update');
-Route::get('admin/news/edit{news}', [NewsController::class, 'edit'])->name('news.admin.edit');
-Route::delete('admin/news/destroy/{news}', [NewsController::class, 'destroy'])->name('news.admin.destroy');
+//NEWS
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
+//AUTRE
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
