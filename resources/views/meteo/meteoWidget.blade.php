@@ -1,6 +1,6 @@
-@extends('template')
- 
-@section('content')
+@extends('welcome')
+
+@section('meteo')
 @if (isset($error))
         @if ($error == 1)
             <p>Erreur, la base de données est inaccessible</p>
