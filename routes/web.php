@@ -48,7 +48,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/meteo', [CtrlMeteo::class, 'selectVilleMeteo'])->name('meteo_post');
 
     //EVENEMENT
-    Route::resource('/evenements', 'App\Http\Controllers\EvenementController');
+    Route::resource('/evenements', 'App\Http\Controllers\EvenementController')->middleware('role');
 
     //AGENDA
     Route::get('/articles', [ArticleController::class, 'indexAdmin'])->name('articles.admin.index');

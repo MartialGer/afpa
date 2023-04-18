@@ -8,20 +8,16 @@ use App\Models\User;
 
 class RoleMiddleware
 {
-    public function handle($request, Closure $next, ...$roles)
-    {
-        if (Auth::check()) {
-            $userId = Auth::user()->id;
-            $user = User::find($userId);
-                   
-            foreach ($roles as $role) {
-                
-                if ($user->hasRole($role)) {
-                    return $next($request);
-                }
-            }
-        }
+    public function handle($request, Closure $next)
+{
+    if (Auth::check()) {
+        $user = Auth::user();
 
-        return redirect('/');
+        if ($user->role_id == 1) {
+            return $next($request);
+        }
     }
+
+    return redirect('/');
+}
 }
