@@ -19,8 +19,8 @@ class ModelMeteoFactory extends Factory
         return [
             'nom'=> fake()->word(),
             'ville'=> fake()->word(),
-            
-
+            'json'=> fake()->text(),
+            'visibilite_id'=> fake()->numberBetween(1,3),
             
         ];
     }
