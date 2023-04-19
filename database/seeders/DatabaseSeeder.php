@@ -10,10 +10,11 @@ use App\Models\Type_media;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\ModelMeteo;
+use App\Models\Template;
+use App\Models\User;
 // use DB;
 use Illuminate\Support\Facades\DB;
-
-
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -119,5 +120,43 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
+        $previews = ['/storage/imagesEvenement/preview 1.png', '/storage/imagesEvenement/preview 2.png'];
+        $visibilitesTemp = ['Image/Vidéo', 'Vidéo/Image'];
+
+        for ($i = 0; $i < 2; $i++) {
+            Template::factory()->create([
+                'nom' => $visibilitesTemp[$i],
+                'preview' => $previews[$i],
+            ]);
+        }
+
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' =>   Hash::make('ProJAfpa11'),
+            'role_id' => 1,
+        ]);
+
+        User::factory()->create([
+            'name' => 'guest',
+            'email' => 'guest@gmail.com',
+            'password' =>   Hash::make('GuesTAfpa11'),
+            'role_id' => 2,
+        ]);
+
+        User::factory()->create([
+            'name' => 'Admin_Editeur',
+            'email' => 'adminEditeur@gmail.com',
+            'password' =>   Hash::make('EditeuRAfpa11'),
+            'role_id' => 3,
+        ]);
+
+        User::factory()->create([
+            'name' => 'Admin_Gestion',
+            'email' => 'adminGestion@gmail.com',
+            'password' =>   Hash::make('GestioNAfpa11'),
+            'role_id' => 4,
+        ]);
     }
 }
