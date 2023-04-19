@@ -25,7 +25,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 /////ADMIN 
-// Route::prefix('/admin')->middleware('role:Super Admin')->group(function () {
+// Route::prefix('/admin')->middleware('role:1')->group(function () {
 Route::prefix('/admin')->group(function () {
 
     //NDS
@@ -48,7 +48,7 @@ Route::prefix('/admin')->group(function () {
     Route::post('/meteo', [CtrlMeteo::class, 'selectVilleMeteo'])->name('meteo_post');
 
     //EVENEMENT
-    Route::resource('/evenements', 'App\Http\Controllers\EvenementController')->middleware('role: 1,2');
+    Route::resource('/evenements', 'App\Http\Controllers\EvenementController')->middleware('role: 1');
 
     //AGENDA
     Route::get('/articles', [ArticleController::class, 'indexAdmin'])->name('articles.admin.index');
